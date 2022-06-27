@@ -1,0 +1,22 @@
+{
+    "name": "lib_ui-components-new",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/index.js",
+    "type": "module",
+    "scripts": {
+        "lint": "eslint .",
+        "test": "cross-env NODE_NO_WARNINGS=1 DEBUG_PRINT_LIMIT=300000 node --experimental-specifier-resolution=node ../node_modules/mocha/lib/cli/cli.js",
+        "test:teamcity": "node --experimental-specifier-resolution=node ../node_modules/mocha/lib/cli/cli.js --reporter mocha-teamcity-reporter --recursive",
+        "updateIndexes": "lib_create-index ./src --recursive  --exportAsObject --ignoreUnsafe --banner //Call_[npm_run_updateIndexes]_to_update_this_file."
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {},
+    "devDependencies": {},
+    "peerDependencies": {
+        "react": "18.0.0",
+        "react-dom": "18.0.0"
+    }
+}
