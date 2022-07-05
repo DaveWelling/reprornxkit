@@ -1,6 +1,6 @@
-import camelcase from 'lodash.camelcase';
 import { createElement as rc } from 'react';
-import { View, Text } from 'react-native';
+import View from './View';
+import Text from './Text';
 export default function Application() {
     // prettier-ignore
     return rc(View, null,

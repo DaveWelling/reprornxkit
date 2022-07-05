@@ -5,10 +5,10 @@
     "scripts": {
         "android": "react-native run-android",
         "ios": "react-native run-ios",
-        "start": "react-native start",
+        "start": "react-native rnx-start",
         "test": "jest",
         "lint": "eslint .",
-        "bundle": "react-native rnx-bundle --entry-file index.js --platform android --bundle-output android/main.jsbundle --sourcemap-output android/main.jsbundle.map --assets-dest android"
+        "bundle": "react-native rnx-bundle"
     },
     "dependencies": {
         "react": "18.0.0",
@@ -28,10 +28,26 @@
         "metro-react-native-babel-preset": "^0.70.3",
         "react-test-renderer": "18.0.0"
     },
+    "jest": {
+        "preset": "react-native"
+    },
     "workspaces": [
         "../lib_ui-components-new"
     ],
-    "jest": {
-        "preset": "react-native"
+    "rnx-kit": {
+        "bundle": {
+            "detectDuplicateDependencies": false,
+            "entryFile": "index.js",
+            "targets": [
+                "android"
+            ],
+            "platforms": {
+                "android": {
+                    "bundleOutput": "android/main.jsbundle",
+                    "sourcemapOutput": "android/main.jsbundle.map",
+                    "assetsDest": "android"
+                }
+            }
+        }
     }
 }

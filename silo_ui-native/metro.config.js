@@ -1,14 +1,20 @@
-const { makeMetroConfig } = require('@rnx-kit/metro-config');
+const { makeMetroConfig, resolveUniqueModule } = require('@rnx-kit/metro-config');
 const MetroSymlinksResolver = require('@rnx-kit/metro-resolver-symlinks');
 const path = require('path');
-module.exports = makeMetroConfig({
-    projectRoot: __dirname,
+const [reactPath] = resolveUniqueModule('react');
+const [reactNativePath] = resolveUniqueModule('react-native');
+
+const metroConfig = makeMetroConfig();
+module.exports = {
+    ...metroConfig,
     resolver: {
-        resolveRequest: MetroSymlinksResolver(),
-        //nodeModulesPaths: [path.resolve(__dirname, '..', 'node_modules')]
+        extraNodeModules: {
+            react: reactPath,
+            'react-native': reactNativePath,
+        },
     },
-    watchFolders: [__dirname, path.resolve(__dirname, '..')],
-});
+    watchFolders: [...metroConfig.watchFolders, path.resolve(__dirname, '..')],
+};
 // /**
 //  * Metro configuration for React Native
 //  * https://github.com/facebook/react-native
