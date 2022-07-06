@@ -1,7 +1,7 @@
 const { makeMetroConfig, resolveUniqueModule } = require('@rnx-kit/metro-config');
 const MetroSymlinksResolver = require('@rnx-kit/metro-resolver-symlinks');
 const path = require('path');
-const [reactPath] = resolveUniqueModule('react');
+const [reactPath, reactExclude] = resolveUniqueModule('react');
 const [reactNativePath] = resolveUniqueModule('react-native');
 
 const metroConfig = makeMetroConfig();
@@ -12,6 +12,7 @@ module.exports = {
             react: reactPath,
             'react-native': reactNativePath,
         },
+        blockList: [reactExclude],
     },
     watchFolders: [...metroConfig.watchFolders, path.resolve(__dirname, '..')],
 };

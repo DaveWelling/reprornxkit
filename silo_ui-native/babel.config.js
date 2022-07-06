@@ -1,6 +1,7 @@
 module.exports = {
     //  presets: ['module:metro-react-native-babel-preset'],
-    presets: ['@rnx-kit/babel-preset-metro-react-native']
+    presets: ['@rnx-kit/babel-preset-metro-react-native'],
+    plugins: [['transform-define', { __IS_A_VALUE__: 'you betcha' }]],
 };
 // const { makeBabelConfig } = require('@rnx-kit/metro-config');
 // module.exports = makeBabelConfig([

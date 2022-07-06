@@ -23,6 +23,7 @@
         "@rnx-kit/metro-config": "^1.2.33",
         "@rnx-kit/metro-resolver-symlinks": "^0.1.21",
         "babel-jest": "^26.6.3",
+        "babel-plugin-transform-define": "^2.0.1",
         "eslint": "^7.32.0",
         "jest": "^26.6.3",
         "metro-react-native-babel-preset": "^0.70.3",
